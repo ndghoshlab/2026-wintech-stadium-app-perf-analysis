@@ -156,7 +156,7 @@ To execute the entire analysis pipeline and regenerate all figures and statistic
 | **Figure 8** | App QoE ECDF (Non-Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `1MB Posting-Non-game.pdf`<br>`Send 1MB Picture-Non-game.pdf`<br>`Send Text-Non-game.pdf` |
 | **Figure 9** | App QoE ECDF (Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `1MB Posting-Game.pdf`<br>`Send 1MB Picture-Game.pdf`<br>`Send Text-Game.pdf` |
 | **Table 2 & 3** | LTE/5G Configurations & RAN Deployment Ratios | `Ardan-2026_radio_PciAndRanDist.ipynb` |    | Terminal summary output |
-| **Table 4 & 5** | Ookla Overhead & Browsing Metric Summary | `Ardan-2026_analysis_browsingStatistics.ipynb` |    | `BrowsingStatistics.txt` |
+| **Table 5** | Browsing Metric Summary | `Ardan-2026_analysis_browsingStatistics.ipynb` |    | `BrowsingStatistics.txt` |
 | **Section 4.4** | WhatsApp & Instagram Failure Rates & Latency | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `IgStatistics.txt`<br>`WaStatistics.txt` |
 
 ---
