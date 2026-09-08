@@ -116,7 +116,7 @@ pip install -r requirements.txt
 Make the execution scripts executable and run the quick test script:
 
 ```bash
-chmod +x download_data.sh run_quick.sh run_all.sh
+chmod +x download_data.sh run_quick.sh run_all.sh temp_gdrive.sh
 ./run_quick.sh
 ```
 
