@@ -24,7 +24,8 @@ pip install --quiet -r requirements.txt
 
 # 3. Handle Raw Dataset Procurement
 echo "[3/4] Ensuring raw dataset availability..."
-bash download_data.sh
+#bash download_data.sh
+bash temp_gdrive.sh # Will change later when Zenodo is published
 
 # 4. Execute All Analysis & Reproduction Notebooks
 echo "[4/4] Executing all analysis notebooks end-to-end..."
