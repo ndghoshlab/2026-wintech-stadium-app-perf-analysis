@@ -6,6 +6,8 @@ RECORD_ID="22273077"
 ARCHIVE_NAME="data_raw.tar.gz" # Exact filename uploaded to Zenodo
 ZENODO_URL="https://zenodo.org/records/${RECORD_ID}/files/${ARCHIVE_NAME}?download=1"
 
+EXPECTED_SHA256="ce3ea759ef39bd02501e305822d45f8692ff1b8b454e702215dc107f30294c7b"
+
 echo "================================================================="
 echo "  ACM WiNTECH '26 Artifact: Checking Raw Trace Dataset"
 echo "================================================================="
@@ -33,6 +35,43 @@ extract_archive() {
     esac
 }
 
+quarantine_file() {
+    local file="$1"
+    local timestamp
+    timestamp=$(date +%Y%m%d_%H%M%S)
+    local backup_name="${file}.corrupted.${timestamp}"
+
+    echo "[!] Quarantining corrupted file to '${backup_name}'"
+    mv -- "$file" "$backup_name"
+}
+
+verify_checksum() {
+    local file="$1"
+    local local_sha=""
+
+    if command -v sha256sum &> /dev/null; then
+        local_sha=$(sha256sum "$file" | awk '{print $1}')
+    elif command -v shasum &> /dev/null; then
+        local_sha=$(shasum -a 256 "$file" | awk '{print $1}')
+    else
+        echo "[!] Warning: Neither 'sha256sum' nor 'shasum' found. Skipping verification."
+        return 0
+    fi
+
+    echo "Verifying checksum for $file ..."
+    if [ "$local_sha" != "$EXPECTED_SHA256" ]; then
+        echo "[!] ERROR: Checksum mismatch for $file"
+        echo "    Expected: $EXPECTED_SHA256"
+        echo "    Got:      $local_sha"
+        return 1
+    fi
+
+    echo "[OK] Checksum matches."
+    return 0
+}
+
+
+
 # --- Case 1: Check if data_raw/ already exists and contains files ---
 if [ -d "data_raw" ] && [ "$(ls -A data_raw 2>/dev/null)" ]; then
     echo "[OK] 'data_raw/' directory already exists and is not empty."
@@ -53,11 +92,16 @@ done
 
 if [ -n "$FOUND_ARCHIVE" ]; then
     echo "[OK] Found local archive: $FOUND_ARCHIVE"
-    extract_archive "$FOUND_ARCHIVE"
-    echo "================================================================="
-    echo " SUCCESS: Raw dataset ready in 'data_raw/'."
-    echo "================================================================="
-    exit 0
+    if verify_checksum "$FOUND_ARCHIVE"; then
+        extract_archive "$FOUND_ARCHIVE"
+        echo "================================================================="
+        echo " SUCCESS: Raw dataset ready in 'data_raw/'."
+        echo "================================================================="
+        exit 0
+    else
+        quarantine_file "$FOUND_ARCHIVE"
+        echo "[!] Will attempt a clean download from Zenodo..."
+    fi
 fi
 
 # --- Case 3: Download from Zenodo ---
@@ -88,6 +132,17 @@ else
     echo "[!] Error: Neither curl nor wget found. Please install one to proceed."
     echo " Otherwise, you can download the dataset manually from:"
     echo " $ZENODO_URL"
+    exit 1
+fi
+
+# Verify the downloaded file before extraction
+if ! verify_checksum "$ARCHIVE_NAME"; then
+    quarantine_file "$ARCHIVE_NAME"
+    echo "================================================================="
+    echo " [ERROR] Downloaded archive is corrupted."
+    echo " Please check your internet connection or download manually from:"
+    echo " $ZENODO_URL"
+    echo "================================================================="
     exit 1
 fi
 
