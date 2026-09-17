@@ -142,22 +142,20 @@ To execute the entire analysis pipeline and regenerate all figures and statistic
 
 ## Paper Results to Notebook Mapping
 
-...
-
-| Paper Result | Artifact Description | Primary Notebook | &nbsp; | Generated Artifact (`figures/`) |
-| :--- | :--- | :--- | :--- | :--- |
-| **Figure 2** | Downlink (PDSCH) & Uplink (PUSCH) MCS Distributions | `Ardan-2026_phy-layer_browsingBandAnalysis.ipynb` |    | `phy_MCS-PDSCH-Operator-wise_violin.pdf`<br>`phy_MCS-PUSCH-Operator-wise_violin.pdf` |
-| **Figure 3** | Count of Unique BSSIDs (2026 Non-Game) | `Muhammad-2026_paper_analysis.ipynb` |    | `bar_plot_unique_bssid_bowl_2026.pdf` |
-| **Figure 4a, b** | Count of Unique BSSIDs & Connection Ratio | `Muhammad-2026_paper_analysis.ipynb` |    | `stacked_bar_unique_bssid_bowl.pdf`<br>`stacked_bar_wifi_conn_ratio.pdf` |
-| **Figure 4c** | Wi-Fi Channel Utilization ECDF | `Muhammad-2026_paper_analysis.ipynb` |    | `ecdf_chutil_5ghz_6ghz_sp.pdf` |
-| **Figure 5** | Ookla Speedtest Metrics (Non-game) | `Muhammad-2026_paper_analysis.ipynb` |    | `ecdf_ookla_pregame_bowl_dl.pdf`<br>`ecdf_ookla_pregame_bowl_ul.pdf`<br>`ecdf_ookla_pregame_bowl_lat.pdf` |
-| **Figure 6** | Ookla Speedtest Metrics (Game) | `Muhammad-2026_paper_analysis.ipynb` |    | `ecdf_ookla_game_bowl_dl.pdf`<br>`ecdf_ookla_game_bowl_ul.pdf`<br>`ecdf_ookla_game_bowl_lat.pdf` |
-| **Figure 7** | Browsing Duration ECDF (Game vs Non-game) | `Ardan-2026_analysis_browsingStatistics.ipynb` |    | `testStatusCompleted_qoe_Browsing Duration_LabelWise_browsing-ecdf-v4.pdf` |
-| **Figure 8** | App QoE ECDF (Non-Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `1MB Posting-Non-game.pdf`<br>`Send 1MB Picture-Non-game.pdf`<br>`Send Text-Non-game.pdf` |
-| **Figure 9** | App QoE ECDF (Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `1MB Posting-Game.pdf`<br>`Send 1MB Picture-Game.pdf`<br>`Send Text-Game.pdf` |
-| **Table 2 & 3** | LTE/5G Configurations & RAN Deployment Ratios | `Ardan-2026_radio_PciAndRanDist.ipynb` |    | Terminal summary output |
-| **Table 5** | Browsing Metric Summary | `Ardan-2026_analysis_browsingStatistics.ipynb` |    | `BrowsingStatistics.txt` |
-| **Section 4.4** | WhatsApp & Instagram Failure Rates & Latency | `Ardan-2026_analysis_IgWaStatistics.ipynb` |    | `IgStatistics.txt`<br>`WaStatistics.txt` |
+| Paper Result | Artifact Description | Primary Notebook | Generated Artifact (`figures/`) |
+| :--- | :--- | :--- | :--- |
+| **Figure 2** | Downlink (PDSCH) & Uplink (PUSCH) MCS Distributions | `Ardan-2026_phy-layer_browsingBandAnalysis.ipynb` | `phy_MCS-PDSCH-Operator-wise_violin.pdf`<br>`phy_MCS-PUSCH-Operator-wise_violin.pdf` |
+| **Figure 3** | Count of Unique BSSIDs (2026 Non-Game) | `Muhammad-2026_paper_analysis.ipynb` | `bar_plot_unique_bssid_bowl_2026.pdf` |
+| **Figure 4a, b** | Count of Unique BSSIDs & Connection Ratio | `Muhammad-2026_paper_analysis.ipynb` | `stacked_bar_unique_bssid_bowl.pdf`<br>`stacked_bar_wifi_conn_ratio.pdf` |
+| **Figure 4c** | Wi-Fi Channel Utilization ECDF | `Muhammad-2026_paper_analysis.ipynb` | `ecdf_chutil_5ghz_6ghz_sp.pdf` |
+| **Figure 5** | Ookla Speedtest Metrics (Non-game) | `Muhammad-2026_paper_analysis.ipynb` | `ecdf_ookla_pregame_bowl_dl.pdf`<br>`ecdf_ookla_pregame_bowl_ul.pdf`<br>`ecdf_ookla_pregame_bowl_lat.pdf` |
+| **Figure 6** | Ookla Speedtest Metrics (Game) | `Muhammad-2026_paper_analysis.ipynb` | `ecdf_ookla_game_bowl_dl.pdf`<br>`ecdf_ookla_game_bowl_ul.pdf`<br>`ecdf_ookla_game_bowl_lat.pdf` |
+| **Figure 7** | Browsing Duration ECDF (Game vs Non-game) | `Ardan-2026_analysis_browsingStatistics.ipynb` | `testStatusCompleted_qoe_Browsing Duration_LabelWise_browsing-ecdf-v4.pdf` |
+| **Figure 8** | App QoE ECDF (Non-Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` | `1MB Posting-Non-game.pdf`<br>`Send 1MB Picture-Non-game.pdf`<br>`Send Text-Non-game.pdf` |
+| **Figure 9** | App QoE ECDF (Game: IG & WhatsApp) | `Ardan-2026_analysis_IgWaStatistics.ipynb` | `1MB Posting-Game.pdf`<br>`Send 1MB Picture-Game.pdf`<br>`Send Text-Game.pdf` |
+| **Table 2 & 3** | LTE/5G Configurations & RAN Deployment Ratios | `Ardan-2026_radio_PciAndRanDist.ipynb` | Terminal summary output |
+| **Table 5** | Browsing Metric Summary | `Ardan-2026_analysis_browsingStatistics.ipynb` | `BrowsingStatistics.txt` |
+| **Section 4.4** | WhatsApp & Instagram Failure Rates & Latency | `Ardan-2026_analysis_IgWaStatistics.ipynb` | `IgStatistics.txt`<br>`WaStatistics.txt` |
 
 ---
 
